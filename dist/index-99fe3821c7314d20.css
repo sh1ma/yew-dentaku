@@ -1,0 +1,110 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: aliceblue;
+  color: #F4F2FF;
+}
+
+.app {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.app .dentaku-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  width: 20%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.app .dentaku-wrapper .dentaku-result {
+  flex: 2;
+  background-color: #7F93C4;
+  position: relative;
+}
+.app .dentaku-wrapper .dentaku-input {
+  flex: 8;
+  background-color: #CBD8F2;
+  display: grid;
+  padding: 3vmin;
+  place-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.result-text {
+  position: absolute;
+  right: 1vmin;
+  bottom: 0;
+  font-size: 4em;
+}
+
+.button-container {
+  width: 6vmin;
+  height: 6vmin;
+}
+
+.zero-button-container {
+  width: 13vmin;
+  height: 6vmin;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.button-base, .special-button, .operator-button:focus, .operator-button, .zero-button, .number-button {
+  overflow: hidden;
+  border: none;
+  outline: none;
+  background: transparent;
+  border-radius: 50%;
+  font-size: 1em;
+  color: #F4F2FF;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.button-base::after, .special-button::after, .operator-button:focus::after, .operator-button::after, .zero-button::after, .number-button::after {
+  content: "";
+  /*絶対配置で波紋位置を決める*/
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /*波紋の形状*/
+  background: radial-gradient(circle, #fff 30%, transparent 20%) no-repeat 50%;
+  transform: scale(10, 10);
+  /*はじめは透過0に*/
+  opacity: 0;
+  /*アニメーションの設定*/
+  transition: transform 0.3s, opacity 1s;
+}
+
+.button-base:active::after, .special-button:active::after, .operator-button:active::after, .zero-button:active::after, .number-button:active::after {
+  transform: scale(0, 0);
+  transition: 0s;
+  opacity: 0.3;
+}
+
+.number-button {
+  background-color: #7F93C4;
+}
+
+.zero-button {
+  background-color: #7F93C4;
+  border-radius: 30px;
+}
+
+.special-button, .operator-button:focus, .operator-button {
+  background-color: #BDAAE6;
+}
+
+.operator-button:focus {
+  background-color: #F4F2FF;
+  color: #BDAAE6;
+}
