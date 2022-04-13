@@ -149,7 +149,7 @@ fn dentaku_input_board() -> Html {
             <NumberButton number={7} />
             <NumberButton number={8} />
             <NumberButton number={9} />
-            <OperatorButton text={"x".to_string()} operator={Operator::Div} />
+            <OperatorButton text={"x".to_string()} operator={Operator::Mul} />
             <NumberButton number={4} />
             <NumberButton number={5} />
             <NumberButton number={6} />
